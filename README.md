@@ -85,7 +85,7 @@ To build and run one of the connectors on the local filesystem, outside Docker:
 
 GitHub Actions will build, test, and publish a package whenever changes are committed to this repository.
 
-To build and publish a numbered version of a package, create a Git tag of the form `package/vmajor.minor.patch`, for example `covid-sim-connector/v1.2.3`, and push it to the repository.
+To build and publish a numbered version of a package, create a Git tag of the form `vmajor.minor.patch`, for example `v1.2.3`, and push it to the repository.
 
 ## Questions, comments, and where to find us
 
