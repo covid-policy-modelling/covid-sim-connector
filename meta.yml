@@ -1,28 +1,121 @@
-demo: # Replace with a *short* name that can identify your model in code/URLs
-  name: Demo Model # Name of your model, to be displayed in the UI
-  origin: Covid Policy Modelling # Name of the organisation responsible for the model, to be displayed in the UI
-  enabled: true # Set to false if your repository is private
-  imageURL: docker.pkg.github.com/covid-policy-modelling/model-connector-template/model-connector:latest # URL of your published Docker container
-  metaURLs: # (Optional) URLs with more data about the model, to be displayed in the UI
-    code: https://github.com/covid-policy-modelling/model-connector-template
-    paper: https://github.com/covid-modeling/covid-model-evaluation/blob/main/how-predictive-are-models-of-covid-19.pdf
-    website: https://github.com/covid-policy-modelling
+mrc-ide-covid-sim:
+  name: CovidSim (Imperial)
+  origin: Imperial College
+  enabled: true
+  imageURL: ghcr.io/covid-policy-modelling/covid-sim-connector/covid-sim-connector:latest
+  metaURLs:
+    code: https://github.com/mrc-ide/covid-sim
+    paper: https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf
   description: |
-    A template for adding new models
-    A short description of your model, around a paragraph, to be displayed in the UI
-  supportedParameters: # Delete parameters (as supplied in the input schema) that your model connector does not support
+    We consider the feasibility and implications of strategies for COVID-19,
+    looking at a range of NPI measures. It is important to note at the outset
+    that given SARS-CoV-2 is a newly emergent virus, much remains to be
+    understood about its transmission. In addition, the impact of many of the
+    NPIs detailed here depends critically on how people respond to their
+    introduction, which is highly likely to vary between countries and even
+    communities.
+  supportedParameters:
     - interventionStrategies
-    - contactReduction
     - r0
-  supportedRegions: # List regions and subregions (as described in the input schema) that your model connector supports
+  supportedRegions:
+    AL:
+    AT:
+    BA:
+    BE:
+    BG:
+    BY:
+    CA:
+    CH:
+    CR:
+    DE:
+    DK:
+    EE:
+    ES:
+    FI:
+    FR:
     GB:
-      - GB-ENG
-      - GB-NIR
-      - GB-SCT
-      - GB-WAL
+      - GB
+      - GB-LND
+    GI:
+    GR:
+    HR:
+    HU:
+    IR:
+    IS:
+    IT:
+    LT:
+    LU:
+    LV:
+    MD:
+    ME:
+    MK:
+    MT:
+    NG:
+    NL:
+    NO:
+    PL:
+    PT:
+    RO:
+    RS:
+    RU:
+    SE:
+    SI:
+    SK:
+    UA:
     US:
-      - US # If the connector supports both the top-level region and some subregions, you must explicitly repeat the top-level region in the array
+      - US
       - US-AK
-      - UK-AL
-    IE: # As a convenience, you can use a missing value if the connector only supports the top-level region
-    CA: [] # Or an empty array
+      - US-AL
+      - US-AR
+      - US-AS
+      - US-AZ
+      - US-CA
+      - US-CO
+      - US-CT
+      - US-DC
+      - US-DE
+      - US-FL
+      - US-GA
+      - US-GU
+      - US-HI
+      - US-IA
+      - US-ID
+      - US-IL
+      - US-IN
+      - US-KS
+      - US-KY
+      - US-LA
+      - US-MA
+      - US-MD
+      - US-ME
+      - US-MI
+      - US-MN
+      - US-MO
+      - US-MS
+      - US-MT
+      - US-NC
+      - US-ND
+      - US-NE
+      - US-NH
+      - US-NJ
+      - US-NM
+      - US-NV
+      - US-NY
+      - US-OH
+      - US-OK
+      - US-OR
+      - US-PA
+      - US-PR
+      - US-RI
+      - US-SC
+      - US-SD
+      - US-TN
+      - US-TX
+      - US-UT
+      - US-VA
+      - US-VI
+      - US-VT
+      - US-WA
+      - US-WI
+      - US-WV
+      - US-WY
