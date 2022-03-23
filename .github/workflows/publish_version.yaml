@@ -1,27 +1,31 @@
-name: Model Runner-Publish Docker Images for Tags/Releases
+name: MRC-IDE CovidSim Connector-Publish Docker Images for Tags/Releases
 on:
   push:
-    # Publish `model-runner/v1.2.3` tags as model-runner releases.
+    # Publish `mrc-ide-covidsim/v1.2.3` tags as `mrc-ide-covidsim-connector` releases.
     tags:
-      - 'model-runner/v*'
+      - 'mrc-ide-covidsim/v*'
 
 env:
-  PACKAGE_NAME: model-runner
-  IMAGE_NAME: model-runner
+  PACKAGE_NAME: mrc-ide-covidsim
+  IMAGE_NAME: mrc-ide-covidsim-connector
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/model-runner
 
     strategy:
       fail-fast: true
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
+
+      - name: Login to GitHub Packages for base image
+        uses: docker/login-action@v1
+        with:
+          registry: docker.pkg.github.com
+          username: ${{ secrets.GPR_USER }}
+          password: ${{ secrets.GPR_PAT }}
 
       - name: Build image
         run: docker-compose build release

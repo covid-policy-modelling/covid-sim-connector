@@ -3,12 +3,18 @@ services:
   release:
     build:
       context: .
+      target: release
+      args:
+        - COVIDSIM_VER=${COVIDSIM_VER:-0.14.0}
     # This is set this way to make things easier in the Actions workflows.
     image: image
 
   run-model:
     build:
       context: .
+      target: test
+      args:
+        - COVIDSIM_VER=${COVIDSIM_VER:-0.14.0}
     volumes:
       - ./test-job.json:/data/input/inputFile.json:ro
       - ./output:/data/output:rw
