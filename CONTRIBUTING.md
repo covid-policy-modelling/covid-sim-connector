@@ -1,7 +1,7 @@
 ## Contributing
 
-[fork]: https://github.com/covid-policy-modelling/model-runner/fork
-[pr]: https://github.com/covid-policy-modelling/model-runner/compare
+[fork]: https://github.com/covid-policy-modelling/covid-sim-connector/fork
+[pr]: https://github.com/covid-policy-modelling/covid-sim-connector/compare
 [style]: https://github.com/google/gts
 [code-of-conduct]: CODE_OF_CONDUCT.md
 
