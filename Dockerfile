@@ -1,6 +1,6 @@
 # Default version if the variable is not set. The version in the .env file takes precedence.
 ARG COVIDSIM_VER=master
-FROM docker.pkg.github.com/mrc-ide/covid-sim/covidsim:${COVIDSIM_VER} AS covidsim
+FROM ghcr.io/mrc-ide/covid-sim/covidsim:${COVIDSIM_VER} AS covidsim
 
 ####################################################################
 FROM node:14-buster-slim AS build
@@ -42,6 +42,8 @@ ENTRYPOINT ["/connector/bin/run-model"]
 ####################################################################
 # Do this here so that we don't have to run the tests when bulding a release.
 FROM build AS release
+
+LABEL org.opencontainers.image.source=https://github.com/covid-policy-modelling/covid-sim-connector
 
 ####################################################################
 FROM build AS test
